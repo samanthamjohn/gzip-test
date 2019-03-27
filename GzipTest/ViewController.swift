@@ -12,7 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let dict = ["foo" : "bar"]
+        do {
+            let data = try JSONSerialization.data(withJSONObject: dict, options: [])
+            let _ = try data.gzipped()
+        } catch {
+            print("error")
+        }
     }
 
 
